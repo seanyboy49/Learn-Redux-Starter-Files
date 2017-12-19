@@ -15,9 +15,21 @@ const defaultState = {
   comments
 }
 
-const store = createStore(rootReducer, defaultState);
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+)
+
+const store = createStore(rootReducer, defaultState, enhancers);
 
 export const history = syncHistoryWithStore(browserHistory, store) // browserHistory keeps track of navigating
+
+// can't use es6 import statements inside a function
+if(module.hot) {
+  module.hot.accept('./reducers/', () => {
+    const nextRootReducer = require('./reducers/index').default; // top level reducer
+    store.replaceReducer(nextRootReducer);
+  });
+}
 
 export default store; // You can have one default export per file
 

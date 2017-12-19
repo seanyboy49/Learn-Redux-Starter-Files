@@ -10,7 +10,7 @@ function posts (state = [], action) {// set state to be an empty array
       const i = action.index;
       return [
         ...state.slice(0,i), // before the one we are updating
-        {...state[i],likes: state[i].likes + 1 },
+        {...state[i],likes: state[i].likes + 10 },
         ...state.slice(i+1) // after the one we are updating
       ]
     default:

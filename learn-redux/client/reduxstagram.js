@@ -14,6 +14,7 @@ import PhotoGrid from './components/PhotoGrid';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
+import Raven from 'raven-js';
 
 // Provider tag exposes the router to the React application
 
