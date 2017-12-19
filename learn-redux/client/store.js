@@ -21,3 +21,4 @@ export const history = syncHistoryWithStore(browserHistory, store) // browserHis
 
 export default store; // You can have one default export per file
 
+ 
